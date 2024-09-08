@@ -1,10 +1,10 @@
-import type { Metadata } from "next";
+import { geistSans, geistMono } from "./fonts";
 import "./globals.css";
 
-import * as React from "react"
+import type { Metadata } from "next";
+import * as React from "react";
 
-import { geistSans, geistMono } from "./fonts";
-
+import { Footer } from "@/components/footer";
 import { NavigationBar } from "@/components/navigation-bar";
 import { ThemeProvider } from "@/components/theme-provider";
 
@@ -21,11 +21,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen`}
       >
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <NavigationBar />
           {children}
+          <Footer />
         </ThemeProvider>
       </body>
     </html>
